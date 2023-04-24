@@ -56,6 +56,30 @@
         @enderror
 
         <label>
+            Sexo: 
+            <select name="sexo">
+                <option value="" {{ (old('sexo', $paciente->sexo) == '') ? 'selected' : '' }}>...</option>
+                <option value="M" {{old('sexo', $paciente->sexo) == 'M' ? 'selected' : '' }}>Masculino</option>
+                <option value="F" {{old('sexo', $paciente->sexo) == 'F' ? 'selected' : '' }}>Femenino</option>
+            </select>
+            <br>
+        </label>
+        @error('sexo')
+        <small>*{{$message}}</small>
+        <br><br>
+        @enderror
+
+        <label>
+            Fecha Nacimiento:
+            <input type="date" name="fecNac" value="{{old('fecNac', $paciente->fecNac)}}">
+            <br>
+        </label>
+        @error('fecNac')
+        <small>*{{$message}}</small>
+        <br><br>
+        @enderror
+
+        <label>
             Carrera: 
             <select name="carrera">
                 <option value="" {{old('carrera', $paciente->carrera)== '' ? 'selected' : ''}}>...</option>

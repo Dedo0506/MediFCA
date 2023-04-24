@@ -27,21 +27,24 @@ class StorePaciente extends FormRequest
             'appaterno'=> 'required',
             'nocuenta'=> 'required|digits:9', //se pueden agregar mas reglas de validacion
             'carrera'=>'required|not_in:...',
+            'sexo'=> 'required',
+            'fecNac'=> 'required',
             'semestre'=>'required|not_in:0',
             'grupo'=>'required|digits:4',
 
         ];
     }
 
-    /*metodo para personalizar nombre de los atributos para las validaciones
+    //metodo para personalizar nombre de los atributos para las validaciones
     public function attributes()
     {
         return[
-            'name'=>'nombre del curso'
+            'nocuenta'=>'numero de cuenta',
+            'fecNac'=>'fecha de nacimiento'
         ];
     }
 
-    //metodo para personalizar los mensajes de las validaciones 
+    /*metodo para personalizar los mensajes de las validaciones 
     public function messages()
     {
     }*/

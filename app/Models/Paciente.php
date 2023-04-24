@@ -30,7 +30,7 @@ class Paciente extends Model
     protected function appaterno(): Attribute
     {
         return new Attribute(
-            get: fn($value) => strtolower($value),
+            get: fn($value) => ucwords($value),
             set: fn($value) => strtolower($value),
         );
     }
@@ -38,14 +38,14 @@ class Paciente extends Model
     protected function apmaterno(): Attribute
     {
         return new Attribute(
-            get: fn($value) => strtolower($value),
+            get: fn($value) => ucwords($value),
             set: fn($value) => strtolower($value),
         );
     }
 
-    /*este bloque de codigo lo habilitaremos despues de crear datos fake 
+    //este bloque de codigo lo habilitaremos despues de crear datos fake 
     public function setFechaNacimientoAttribute($value)
     {
         $this->attributes['fecha_nacimiento'] = Carbon::createFromFormat('d/m/Y', $value)->format('Y-m-d');
-    }*/
+    }
 }

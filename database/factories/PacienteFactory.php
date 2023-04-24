@@ -31,7 +31,7 @@ class PacienteFactory extends Factory
             'appaterno' =>$this->faker->lastName(),
             'apmaterno' =>$this->faker->lastName(),
             'nocuenta' =>$this->faker->unique()->numberBetween(100000000,900000000),
-            'sexo'=>$this->faker->randomLetter(['M','F']),
+            'sexo'=>$this->faker->randomElement(['M','F']),
             'fecNac'=>$this->faker->dateTimeBetween('1995-00-01', '2004-12-31'),
             'carrera' =>$this->faker->randomElement(['Administracion', 'Contaduria', 'Informatica', 'Negocios internacionales']),
             'semestre' =>$this->faker->numberBetween(1, 8),

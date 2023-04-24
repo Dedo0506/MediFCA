@@ -42,6 +42,8 @@ class PacienteController extends Controller
         'appaterno' => $request->appaterno,
         'apmaterno' => $request->apmaterno,
         'nocuenta' => $request->nocuenta,
+        'sexo'=> $request->sexo,
+        'fecNac'=> $request->fecNac,
         'carrera' => $request->carrera,
         'semestre' => $request->semestre,
         'grupo' => $request->grupo,

@@ -12,6 +12,8 @@
     
     <p><strong>N° cuenta: </strong>{{$paciente->nocuenta}}</p>
     <p><strong>Carrera: </strong>{{$paciente->carrera}}</p>
+    <p><strong>Sexo: </strong>{{ $paciente->sexo == 'M' ? 'Masculino' : 'Femenino' }}</p>
+    <p><strong>Fecha Nacimiento: </strong>{{($date = DateTime::createFromFormat('Y-m-d', $paciente->fecNac))->format('d/m/Y')}}</p>
     <p><strong>Semestre: </strong>{{$paciente->semestre}}</p>
     <p><strong>Grupo: </strong>{{$paciente->grupo}}</p>
     <br>
