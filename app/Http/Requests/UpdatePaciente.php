@@ -28,6 +28,8 @@ class UpdatePaciente extends FormRequest
             'appaterno'=> 'required',
             'nocuenta'=> 'required|digits:9', //se pueden agregar mas reglas de validacion
             'carrera'=>'required|not_in:...',
+            'sexo'=> 'required',
+            'fecNac'=> 'required',
             'semestre'=>'required|not_in:0',
             'grupo'=>'required|digits:4',
            

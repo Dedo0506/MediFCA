@@ -39,6 +39,7 @@ class StorePaciente extends FormRequest
     public function attributes()
     {
         return[
+            'appaterno'=>'apellido paterno',
             'nocuenta'=>'numero de cuenta',
             'fecNac'=>'fecha de nacimiento'
         ];
