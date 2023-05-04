@@ -64,9 +64,10 @@ class Paciente extends Model
         return$this->hasOne('App\Models\ante_ginecologicos');
     }
 
-
-    public function ante_HF(){
-        return$this->hasOne('App\Models\ante_HF');
+//relacion de uno a muchos de antecedentes heredo familiares
+    public function ante_familiares(){
+        return$this->hasMany('App\Models\ante_familiares');
     }
 
+    
 }
