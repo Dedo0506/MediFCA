@@ -4,7 +4,6 @@
 @section('title', 'MEDIFCA')
 
 @section('content')
-    <h1>Bienvenidos a MEDIFCA</h1>
     <h2><br>Listado de pacientes</h2>
     <a href="{{route('pacientes.create')}}">Registrar paciente </a>
 

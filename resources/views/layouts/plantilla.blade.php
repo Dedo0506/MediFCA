@@ -11,7 +11,9 @@
 </head>
 <body>
     <!-- header-->
+    @include('layouts.partials.header')
     <!-- nav -->
+
     @yield('content')
 
     <!-- footer -->

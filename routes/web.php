@@ -14,8 +14,11 @@ use App\Http\Controllers\HomeController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/',HomeController::class)->name('home');
 
-Route::get('/',HomeController::class);
+Route::resource('pacientes', PacienteController::class);
+
+Route::resource('antecedentes', PacienteController::class);
 /*
 Route::get('pacientes', [PacienteController::class, 'index'])->name('pacientes.index'); 
 
@@ -34,4 +37,3 @@ Route::put('pacientes/{paciente}',[PacienteController::class,'update'])->name('p
 //cuando se necesita elimar un registro a laravel identificar el metodo delete
 Route::delete('pacientes/{paciente}', [PacienteController::class, 'destroy'])->name('pacientes.destroy');
 */
-Route::resource('pacientes', PacienteController::class);

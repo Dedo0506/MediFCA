@@ -48,4 +48,25 @@ class Paciente extends Model
     {
         $this->attributes['fecha_nacimiento'] = Carbon::createFromFormat('d/m/Y', $value)->format('Y-m-d');
     }
+
+    //relaciones 1:1 de antecedentes con paciente
+    public function ante_patologicos(){
+        return$this->hasOne('App\Models\ante_patologicos');
+    }
+
+
+    public function ante_no_patologicos(){
+        return$this->hasOne('App\Models\ante_no_patologicos');
+    }
+
+
+    public function ante_ginecologicos(){
+        return$this->hasOne('App\Models\ante_ginecologicos');
+    }
+
+
+    public function ante_HF(){
+        return$this->hasOne('App\Models\ante_HF');
+    }
+
 }
