@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Paciente;
+use App\Models\ante_patologicos;
+use App\Models\ante_familiares;
+use App\Models\ante_ginecologicos;
+use App\Models\ante_no_patologicos;
 use Illuminate\View\ViewServiceProvider;
 
 //rutas para las validaciones
@@ -13,22 +17,21 @@ use App\Http\Requests\UpdatePaciente;
 
 class PacienteController extends Controller
 {
-     //pagina principal
+     //pagina principal de listar los pacientes
      public function index(){
-
+        //se agrega el ordenamiento en descremento para que se vean los nuevos registros
         $pacientes = Paciente::orderBy('id', 'desc')->paginate();
 
         return view('pacientes.index', compact('pacientes')); 
     }
 
-    //formularios
-    //metodo para mostrar la vista del fromulario para crear un nuevo registro
+    //metodo para mostrar la vista del fromulario para crear un nuevo registro de paciente
     public function create(){
         return view('pacientes.create');
     }
 
-    //metodo store 
-    //request para rescatar los datos del formulario debe ser una instacia de StoreCurso para que tome en cuenta las validaciones
+    //metodo store para crear el registro en la base de datos 
+    //request para rescatar los datos del formulario debe ser una instacia de StorePaciente para que tome en cuenta las validaciones
     public function store(StorePaciente $request){
        // return $request;
         $paciente = new Paciente();//se crea el objeto (instancia)
@@ -37,47 +40,36 @@ class PacienteController extends Controller
         //pero necesita ayuda de la propiedad fillable para que no se agregen mas valores de los que se solicitan
         //ver App\Models\Paciente
 
-        $paciente = Paciente::create([
-        'nombre' => $request->nombre,
-        'appaterno' => $request->appaterno,
-        'apmaterno' => $request->apmaterno,
-        'nocuenta' => $request->nocuenta,
-        'sexo'=> $request->sexo,
-        'fecNac'=> $request->fecNac,
-        'carrera' => $request->carrera,
-        'semestre' => $request->semestre,
-        'grupo' => $request->grupo,
-        ]);
+        $paciente = Paciente::create($request->all());//all sirve para que se guarde todos los valores de la instancia request
 
-        //redirecciona la vista del curso
-        return redirect()->route('pacientes.show', $paciente->id);
-        
+        //redirecciona la vista del paciente
+        return view('antecedentes.create', compact('paciente'));
     }
 
-    //mostrar un elemento en particular
+    //mostrar un paciente en particular
     public function show(Paciente $paciente){
-
         return view('pacientes.show', compact('paciente')); 
     }
 
-    //metodo Update curso
+    //metodo para llamar la vista para editar unpaciente
     public function edit(Paciente $paciente){
         
         return view('pacientes.edit', compact('paciente'));
 
     }
 
-    //request para rescatar los datos del formulario debe ser una instacia de UpdateCurso para que tome en cuenta las validaciones
-    public function update(UpdatePaciente $request,Paciente $paciente){//la variable curso es el registro(objeto) que se quiere modificar 
+    //metodo Update de un paciente y guardar los cambios en la base de datos
+    //request para rescatar los datos del formulario debe ser una instacia de UpdatePaciente para que tome en cuenta las validaciones
+    public function update(UpdatePaciente $request,Paciente $paciente){//la variable paciente es el registro(objeto) que se quiere modificar 
 
          //como se menciona en el caso de CREATE en una sola linea se puede optimizar update
          $paciente->update($request->all());
 
-         //redirecciona la vista del curso
+         //redirecciona la vista del paciente para mostrar los datos ya actualizados
          return redirect()->route('pacientes.show', $paciente->id);
     }
 
-
+    //metodo delete paciente
     public function destroy(Paciente $paciente){
         $paciente->delete();
         return redirect()->route('pacientes.index');

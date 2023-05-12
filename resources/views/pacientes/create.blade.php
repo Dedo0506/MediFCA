@@ -6,12 +6,12 @@
     
     <h1>En esta pagina podras registrar un paciente</h1>
     
-    <!--div>
+    <div>
         <nav>
-            include('layouts.partials.headerPaciente')
+            @include('layouts.partials.headerPaciente')
         </nav>
-    </div>-->
-    <a href="{{route('pacientes.index')}}">Volver a lista de pacientes </a>
+    </div>
+    <!--<a href="{{route('pacientes.index')}}">Volver a lista de pacientes </a>-->
     <h2>Datos personales</h2>
     <form action="{{route('pacientes.store')}}" method="POST">
 
@@ -130,9 +130,7 @@
             <small>*{{$message}}</small>
             <br><br>
         @enderror
-
-        <br>
-        <button type="submit">Enviar formulario</button>
+        <button type="submit">Continuar</button>
     </form>
 @endsection
 

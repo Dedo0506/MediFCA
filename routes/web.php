@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacienteController;
+use App\Http\Controllers\AntecedentesController;
 use App\Http\Controllers\HomeController;
 
 /*
@@ -18,7 +19,10 @@ Route::get('/',HomeController::class)->name('home');
 
 Route::resource('pacientes', PacienteController::class);
 
-Route::resource('antecedentes', PacienteController::class);
+Route::resource('antecedentes', AntecedentesController::class);
+
+
+
 /*
 Route::get('pacientes', [PacienteController::class, 'index'])->name('pacientes.index'); 
 
