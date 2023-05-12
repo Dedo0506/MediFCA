@@ -9,6 +9,10 @@ class ante_patologicos extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'paciente_id'
+    ];
+
     public function paciente(){
         return $this->belongsTo('App\Models\Paciente');
     }

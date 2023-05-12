@@ -3,12 +3,20 @@
 @section('title', 'Paciente '. $paciente->nombre)
 
 @section('content')
-    
-    <h1>"Paciente {{$paciente->nombre}} {{$paciente->appaterno}} {{$paciente->apmaterno}} "</h1>
+
+
     <a href="{{route('pacientes.index')}}">Volver al listado de pacientes </a>
     <br>
+
+    <h1>"Paciente {{$paciente->nombre}} {{$paciente->appaterno}} {{$paciente->apmaterno}} "</h1>
+    <div>
+        <nav>
+            @include('layouts.partials.headerPaciente')
+        </nav>
+    </div>
+
     <a href="{{route('pacientes.edit', $paciente)}}">Editar info de paciente</a>
-    <br>    
+    <br> 
     
     <p><strong>N° cuenta: </strong>{{$paciente->nocuenta}}</p>
     <p><strong>Carrera: </strong>{{$paciente->carrera}}</p>

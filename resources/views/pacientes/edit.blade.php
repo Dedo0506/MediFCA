@@ -4,7 +4,14 @@
 
 @section('content')
     <h1>En esta pagina podras modifcar al paciente <br>{{$paciente->nombre}} {{$paciente->appaterno}} {{$paciente->apmaterno}}</h1>
-    <a href="{{route('pacientes.index')}}">Volver a lista de pacientes </a>
+    
+    <div>
+        <nav>
+            @include('layouts.partials.headerPaciente')
+        </nav>
+    </div>
+
+    <!--<a href="{{route('pacientes.index')}}">Volver a lista de pacientes </a>-->
     <form action="{{route('pacientes.update', $paciente)}}" method="POST">
         <!--html de forma nativa no entiende metodo put por ello se deja post pero se agraga el @ method con put-->
 
