@@ -12,6 +12,7 @@ use Illuminate\View\ViewServiceProvider;
 
 //rutas para las validaciones
 //cuando son muchas se recomienda mandarlas en un solo archivo
+use App\Http\Controllers\AntecedentesController;
 use App\Http\Requests\StorePaciente;
 use App\Http\Requests\UpdatePaciente;
 
@@ -40,16 +41,21 @@ class PacienteController extends Controller
         //pero necesita ayuda de la propiedad fillable para que no se agregen mas valores de los que se solicitan
         //ver App\Models\Paciente
 
-        $paciente = Paciente::create($request->all());//all sirve para que se guarde todos los valores de la instancia request
-
-        //redirecciona la vista del paciente
+        $paciente = Paciente::create($request->all());
+    
         return view('antecedentes.create', compact('paciente'));
     }
 
-    //mostrar un paciente en particular
+    
+    /*mostrar un paciente en particular
     public function show(Paciente $paciente){
         return view('pacientes.show', compact('paciente')); 
-    }
+    }*/
+    public function show($id)
+{
+    $paciente = Paciente::findOrFail($id);
+    return view('pacientes.show', compact('paciente'));
+}
 
     //metodo para llamar la vista para editar unpaciente
     public function edit(Paciente $paciente){

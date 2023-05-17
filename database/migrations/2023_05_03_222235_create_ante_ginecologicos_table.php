@@ -18,6 +18,7 @@ return new class extends Migration
                 ->references('id')
                 ->on('pacientes')
                 ->onDelete('cascade');
+            $table->char('aplica');
             $table->text('especificacion');
             $table->timestamps();
         });

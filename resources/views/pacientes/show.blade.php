@@ -8,10 +8,10 @@
     <a href="{{route('pacientes.index')}}">Volver al listado de pacientes </a>
     <br>
 
-    <h1>"Paciente {{$paciente->nombre}} {{$paciente->appaterno}} {{$paciente->apmaterno}} "</h1>
+    
     <div>
         <nav>
-            @include('layouts.partials.headerPaciente')
+            @include('layouts.partials.headerPacienteShow')
         </nav>
     </div>
 

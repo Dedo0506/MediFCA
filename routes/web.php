@@ -16,14 +16,15 @@ use App\Http\Controllers\HomeController;
 |
 */
 Route::get('/',HomeController::class)->name('home');
-
 Route::resource('pacientes', PacienteController::class);
-
 Route::resource('antecedentes', AntecedentesController::class);
-
-
+Route::get('antecedentes/{paciente}', [AntecedentesControlle::class, 'show'])->name('antecedentes.show');
+Route::get('antecedentes/{paciente}/edit',[AntecedentesControlle::class,'edit'])->name('antecedentes.edit');
 
 /*
+
+//Route::post('pacientes/{paciente}/antecedentes',[PacienteController::class,'storeAntecedentes'])->name('paciente.storeAntecedentes');
+//Route::post('pacientes/{paciente}/antecedentes', 'AntecedentesController@store');
 Route::get('pacientes', [PacienteController::class, 'index'])->name('pacientes.index'); 
 
 Route::get('pacientes/create',[PacienteController::class,'create'])->name('pacientes.create');

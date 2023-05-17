@@ -9,6 +9,8 @@ class ante_patologicos extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     protected $fillable = [
         'paciente_id'
     ];
