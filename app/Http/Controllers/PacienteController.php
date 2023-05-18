@@ -47,15 +47,15 @@ class PacienteController extends Controller
     }
 
     
-    /*mostrar un paciente en particular
+    //mostrar un paciente en particular
     public function show(Paciente $paciente){
         return view('pacientes.show', compact('paciente')); 
-    }*/
-    public function show($id)
+    }
+    /*public function show($id)
 {
     $paciente = Paciente::findOrFail($id);
     return view('pacientes.show', compact('paciente'));
-}
+}*/
 
     //metodo para llamar la vista para editar unpaciente
     public function edit(Paciente $paciente){

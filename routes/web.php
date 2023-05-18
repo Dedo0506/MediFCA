@@ -4,6 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\AntecedentesController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MedicamentosController;
+use App\Http\Controllers\ConsultaController;
+use App\Http\Controllers\PersonalMedicoController;
+use App\Http\Controllers\SignosVitalesController;
+use App\Http\Controllers\TratamientoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +25,11 @@ Route::resource('pacientes', PacienteController::class);
 Route::resource('antecedentes', AntecedentesController::class);
 Route::get('antecedentes/{paciente}', [AntecedentesControlle::class, 'show'])->name('antecedentes.show');
 Route::get('antecedentes/{paciente}/edit',[AntecedentesControlle::class,'edit'])->name('antecedentes.edit');
-
+Route::resource('medicamentos', MedicamentosController::class);
+Route::resource('consulta', ConsultaController::class);
+Route::resource('personalMedico', PersonalMedicoController::class);
+Route::resource('signosVitales', SignosVitalesController::class);
+Route::resource('tratamiento', TratamientoController::class);
 /*
 
 //Route::post('pacientes/{paciente}/antecedentes',[PacienteController::class,'storeAntecedentes'])->name('paciente.storeAntecedentes');

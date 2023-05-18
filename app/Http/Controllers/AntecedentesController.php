@@ -13,7 +13,7 @@ class AntecedentesController extends Controller
 {
     //metodo para mostrar la vista del fromulario para crear un nuevo registro de paciente
     public function create(Paciente $paciente){
-        return view('antecedentes.create',['paciente' => $paciente]);
+        return view('antecedentes.create',compact('paciente'));
     }
     
     public function store(Request $request){
@@ -58,17 +58,18 @@ class AntecedentesController extends Controller
 
         $ante_ginecologicos->paciente_id = $paciente_id;
         $ante_ginecologicos->aplica = $request->input('antG_aplica','N'); // valor predeterminado es "N"
-        $ante_ginecologicos->descripcion = $request->input('antG_descripcion');
+        $ante_ginecologicos->especificacion = $request->input('especificacion');
         $ante_ginecologicos->save();
 
-        return view('antecedentes.show', compact('paciente')
-        );
+        return view('consultas.create');
+    
     }
 
 
     //mostrar antecedentes de un paciente en particular
     
-    public function show(Paciente $paciente)
+    public function show(Paciente $paciente, ante_patologicos $ante_patologicos, ante_no_patologicos $ante_no_patologicos,
+                         ante_familiares $ante_familiares, ante_ginecologicos $ante_ginecologicos)
     {
         $ante_patologicos = ante_patologicos::where('paciente_id', $paciente->id)->first();
         $ante_no_patologicos = ante_no_patologicos::where('paciente_id', $paciente->id)->first();
@@ -84,4 +85,6 @@ class AntecedentesController extends Controller
         return view('antecedentes.edit', compact('paciente'));
 
     }
+
+    
 }

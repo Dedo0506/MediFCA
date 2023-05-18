@@ -6,7 +6,7 @@
 
     <div>
         <nav>
-            @include('layouts.partials.headerPacienteCreate')
+            <!--include('layouts.partials.headerPacienteCreate')-->
         </nav>
     </div>
 
@@ -113,8 +113,8 @@
             @enderror
             
             <label>
-                Descripcion: 
-                <textarea type="text" name="descripcionG" rows="5">{{old('descripcionG')}}</textarea>
+                Especificacion: 
+                <textarea type="text" name="especificacion" rows="5">{{old('especificacion')}}</textarea>
                 <br>
             </label>
             @error('descripcionG')

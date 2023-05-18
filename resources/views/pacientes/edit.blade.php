@@ -7,7 +7,7 @@
     
     <div>
         <nav>
-            @include('layouts.partials.headerPacienteEdit')
+            <!--include('layouts.partials.headerPacienteEdit')-->
         </nav>
     </div>
 

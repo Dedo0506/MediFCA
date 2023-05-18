@@ -8,7 +8,7 @@
     
     <div>
         <nav>
-            @include('layouts.partials.headerPacienteCreate')
+            <!--include('layouts.partials.headerPacienteCreate')-->
         </nav>
     </div>
     <!--<a href="{{route('pacientes.index')}}">Volver a lista de pacientes </a>-->
