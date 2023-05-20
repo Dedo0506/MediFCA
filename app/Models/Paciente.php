@@ -51,22 +51,22 @@ class Paciente extends Model
 
     //relaciones 1:1 de antecedentes con paciente
     public function ante_patologicos(){
-        return$this->hasMany('App\Models\ante_patologicos');
+        return$this->hasMany(ante_patologicos::class, 'paciente_id','id');
     }
 
 
     public function ante_no_patologicos(){
-        return$this->hasMany('App\Models\ante_no_patologicos');
+        return$this->hasMany(ante_no_patologicos::class, 'paciente_id','id');
     }
 
 
     public function ante_ginecologicos(){
-        return$this->hasMany('App\Models\ante_ginecologicos');
+        return$this->hasMany(ante_ginecologicos::class, 'paciente_id','id');
     }
 
 //relacion de uno a muchos de antecedentes heredo familiares
     public function ante_familiares(){
-        return$this->hasMany('App\Models\ante_familiares');
+        return$this->hasMany(ante_familiares::class, 'paciente_id','id');
     }
 
     

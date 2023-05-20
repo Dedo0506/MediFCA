@@ -1,3 +1,101 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 50px auto;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.container section{
+    
+    width:50%;
+    float: left;
+    padding: 1%;
+    float: left;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.menu a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #000;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+}
+
+.search-bar {
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+.card-header {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #0d6efd;
+  background-color: #fff;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.card-body {
+  background-color: #f8f9fa;
+  border: 2px solid #dee2e6;
+  border-top: none;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  border: none;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+}
+
+.form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+   
+img{
+  width: 100%; 
+  height: auto;
+} 
+.active {
+  background: gray;
+  color: aliceblue;
+}

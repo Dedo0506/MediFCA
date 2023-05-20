@@ -68,7 +68,7 @@ class AntecedentesController extends Controller
 
     //mostrar antecedentes de un paciente en particular
     
-    public function show(Paciente $paciente, ante_patologicos $ante_patologicos, ante_no_patologicos $ante_no_patologicos,
+    /*public function show(Paciente $paciente, ante_patologicos $ante_patologicos, ante_no_patologicos $ante_no_patologicos,
                          ante_familiares $ante_familiares, ante_ginecologicos $ante_ginecologicos)
     {
         $ante_patologicos = ante_patologicos::where('paciente_id', $paciente->id)->first();
@@ -77,6 +77,12 @@ class AntecedentesController extends Controller
         $ante_ginecologicos = Ante_ginecologicos::where('paciente_id', $paciente->id)->first();
 
         return view('antecedentes.show', compact('paciente', 'ante_patologicos', 'ante_no_patologicos', 'ante_familiares', 'ante_ginecologicos'));
+    }*/
+    public function show($id)
+    {
+        // Obtener el paciente de la base de datos
+         $paciente = Paciente::find($id);
+        return view('antecedentes.show', compact('paciente'));
     }
 
     //metodo para llamar la vista para editar unpaciente

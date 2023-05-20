@@ -22,9 +22,8 @@ use App\Http\Controllers\TratamientoController;
 */
 Route::get('/',HomeController::class)->name('home');
 Route::resource('pacientes', PacienteController::class);
+Route::post('/buscar-paciente', [PacienteController::class, 'buscarPorNoCuenta'])->name('pacientes.buscarPorNoCuenta');
 Route::resource('antecedentes', AntecedentesController::class);
-Route::get('antecedentes/{paciente}', [AntecedentesControlle::class, 'show'])->name('antecedentes.show');
-Route::get('antecedentes/{paciente}/edit',[AntecedentesControlle::class,'edit'])->name('antecedentes.edit');
 Route::resource('medicamentos', MedicamentosController::class);
 Route::resource('consulta', ConsultaController::class);
 Route::resource('personalMedico', PersonalMedicoController::class);

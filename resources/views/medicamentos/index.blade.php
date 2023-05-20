@@ -1,59 +1,7 @@
 @extends('principal')
 
 @section('menu')
-<style>
-.container {
-  margin-top: 50px;
-}
-
-.card-header {
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #0d6efd;
-  background-color: #fff;
-  border-bottom: 2px solid #dee2e6;
-}
-
-.card-body {
-  background-color: #f8f9fa;
-  border: 2px solid #dee2e6;
-  border-top: none;
-}
-
-.table {
-  margin-top: 20px;
-}
-
-.table td,
-.table th {
-  vertical-align: middle;
-}
-
-.table thead th {
-  background-color: #0d6efd;
-  color: #fff;
-  border: none;
-}
-
-.table-hover tbody tr:hover {
-  background-color: #f5f5f5;
-}
-
-.btn-primary {
-  background-color: #0d6efd;
-  border: none;
-  font-weight: bold;
-}
-
-.btn-primary:hover {
-  background-color: #0b5ed7;
-}
-
-.form-control:focus {
-  border-color: #0d6efd;
-  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
-}
-</style>
+<link href="/resources/css/index.css" rel="stylesheet">
 
 <div class="container">
   <div class="card">

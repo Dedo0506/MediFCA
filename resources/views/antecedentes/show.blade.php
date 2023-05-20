@@ -13,30 +13,25 @@
 
     <!--a href="{route('antecedentes.edit', $paciente->id)}}">Editar antecedentes del paciente</a>-->
     <br> 
+    
     <h1>Antecedentes patológicos</h1>
-        @if ($ante_patologicos)    
-        <p><strong>Aplica:</strong> {{$ante_patologicos['aplica']}}</p>
-        <p><strong>Descripción:</strong> {{ $ante_patologicos->descripcion}}</p>
-        @endif
+        <p><strong>Aplica:</strong> {{$paciente->ante_patologicos()->first()->aplica}}</p>
+        <p><strong>Descripción:</strong> {{$paciente->ante_patologicos()->first()->descripcion}}</p>
+    
 
     <h1>Antecedentes no patológicos</h1>
-        @if ($ante_no_patologicos)
-        <p><strong>Vacunas:</strong> {{ $ante_no_patologicos->vacunas }}</p>
-        <p><strong>Alimentación:</strong> {{ $ante_no_patologicos->alimentacion }}</p>
-        <p><strong>Horas de sueño:</strong>{{ $ante_no_patologicos->hrs_sueno}}</p>
-        @endif
+        <p><strong>Vacunas:</strong> {{$paciente->ante_no_patologicos()->first()->vacunas}}</p>     
+        <p><strong>Alimentación:</strong> {{ $paciente->ante_no_patologicos()->first()->alimentacion }}</p>
+        <p><strong>Horas de sueño:</strong>{{$paciente->ante_no_patologicos()->first()->hrs_sueno }}</p>
 
     <h1>Antecedentes heredo familiares</h1>
-        @if ($ante_familiares)
-        <p><strong>Enfermedad:</strong> {{ $ante_familiares->enfermedad}}</p>
-        <p><strong>Familiar:</strong> {{ $ante_familiares->familiar}}</p>
-        @endif
-
+        <p><strong>Enfermedad:</strong> {{ $paciente->ante_familiares()->first()->enfermedad}}</p>
+        <p><strong>Familiar:</strong> {{ $paciente->ante_familiares()->first()->familiar}}</p>
+        
     <h1>Antecedentes ginecológicos</h1>
-        @if ($ante_ginecologicos)
-        <p><strong>Aplica:</strong> {{$ante_ginecologicos->aplica}}</p>
-        <p><strong>Especificacion: </strong>{{$ante_ginecologicos->especificacion }}</p>
-        @endif
+        <p><strong>Aplica:</strong> {{$paciente->ante_ginecologicos()->first()->aplica}}</p>    
+        <p><strong>Especificacion: </strong>{{$paciente->ante_ginecologicos()->first()->especificacion}}</p>    
+        
     <!--form action="{route('pacientes.destroy', $paciente)}}" method="POST">
         csrf
         method('delete')

@@ -15,7 +15,8 @@ class ante_patologicos extends Model
         'paciente_id'
     ];
 
-    public function paciente(){
-        return $this->belongsTo('App\Models\Paciente');
+    public function paciente()
+    {
+    return $this->belongsTo(Paciente::class, 'paciente_id', 'id');
     }
 }

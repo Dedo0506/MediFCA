@@ -12,7 +12,7 @@ use Illuminate\View\ViewServiceProvider;
 
 //rutas para las validaciones
 //cuando son muchas se recomienda mandarlas en un solo archivo
-use App\Http\Controllers\AntecedentesController;
+//use App\Http\Controllers\AntecedentesController;
 use App\Http\Requests\StorePaciente;
 use App\Http\Requests\UpdatePaciente;
 
@@ -51,11 +51,7 @@ class PacienteController extends Controller
     public function show(Paciente $paciente){
         return view('pacientes.show', compact('paciente')); 
     }
-    /*public function show($id)
-{
-    $paciente = Paciente::findOrFail($id);
-    return view('pacientes.show', compact('paciente'));
-}*/
+
 
     //metodo para llamar la vista para editar unpaciente
     public function edit(Paciente $paciente){
@@ -80,5 +76,24 @@ class PacienteController extends Controller
         $paciente->delete();
         return redirect()->route('pacientes.index');
     }
+
+    public function buscarPorNoCuenta(Request $request)
+    {
+        $nocuenta = $request->input('nocuenta');
+        $paciente = Paciente::where('nocuenta', $nocuenta)->first();
+
+        if ($paciente) {
+            // Paciente encontrado, realizar acciones necesarias
+            // ...
+            return redirect()->route('pacientes.show', $paciente->id);
+        } else {
+            // No se encontró ningún paciente, agregar mensaje de error a la sesión flash
+            session()->flash('error', 'No se encontró ningún paciente con ese número de cuenta.');
+
+            // Redirigir de vuelta a la página anterior
+            return redirect()->back();
+        }
+    }
+
 
 }

@@ -9,7 +9,8 @@ class ante_no_patologicos extends Model
 {
     use HasFactory;
 
-    public function paciente(){
-        return $this->belongsTo('App\Models\Paciente');
+    public function paciente()
+    {
+    return $this->belongsTo(Paciente::class, 'paciente_id', 'id');
     }
 }

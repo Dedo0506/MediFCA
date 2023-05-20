@@ -11,7 +11,7 @@ class TratamientoController extends Controller
     public function index()
     {
         $medicamentos = Medicamento::all();
-        return view('tratamientos.index', compact('medicamentos'));
+        return view('tratamientos.create', compact('medicamentos'));
     }
 
     public function create()
