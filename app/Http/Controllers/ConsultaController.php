@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ConsultaController extends Controller
 {
-    public function index()
+    public function index($paciente_id)
     {
         $consultas = Consulta::latest()->take(2)->get();
         return view('consulta.index', compact('consultas'));

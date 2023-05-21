@@ -61,30 +61,24 @@ class AntecedentesController extends Controller
         $ante_ginecologicos->especificacion = $request->input('especificacion');
         $ante_ginecologicos->save();
 
-        return view('consultas.create');
+        return view('consulta.create', compact('paciente'));
     
     }
 
 
     //mostrar antecedentes de un paciente en particular
     
-    /*public function show(Paciente $paciente, ante_patologicos $ante_patologicos, ante_no_patologicos $ante_no_patologicos,
-                         ante_familiares $ante_familiares, ante_ginecologicos $ante_ginecologicos)
-    {
-        $ante_patologicos = ante_patologicos::where('paciente_id', $paciente->id)->first();
-        $ante_no_patologicos = ante_no_patologicos::where('paciente_id', $paciente->id)->first();
-        $ante_familiares = ante_familiares::where('paciente_id', $paciente->id)->first();
-        $ante_ginecologicos = Ante_ginecologicos::where('paciente_id', $paciente->id)->first();
-
-        return view('antecedentes.show', compact('paciente', 'ante_patologicos', 'ante_no_patologicos', 'ante_familiares', 'ante_ginecologicos'));
-    }*/
     public function show($id)
     {
-        // Obtener el paciente de la base de datos
-         $paciente = Paciente::find($id);
-        return view('antecedentes.show', compact('paciente'));
+    $ante_patologicos = Ante_patologicos::where('paciente_id', $id)->first();
+    $ante_no_patologicos = Ante_no_patologicos::where('paciente_id', $id)->first();
+    $ante_familiares = Ante_familiares::where('paciente_id', $id)->first();
+    $ante_ginecologicos = Ante_ginecologicos::where('paciente_id', $id)->first();
+
+    return view('antecedentes.show', compact('ante_patologicos', 'ante_no_patologicos', 'ante_familiares', 'ante_ginecologicos'));
     }
 
+    
     //metodo para llamar la vista para editar unpaciente
     public function edit(Paciente $paciente){
         

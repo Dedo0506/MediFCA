@@ -17,6 +17,7 @@
           </div>
           <form action="{{ url('/consulta') }}" method="post" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="paciente_id" value="{{ $paciente->id }}">
             <div class="form-group">
               <label for="motivo">{{ __('Motivo') }}</label>
               <textarea class="form-control" id="motivo" name="motivo"></textarea>

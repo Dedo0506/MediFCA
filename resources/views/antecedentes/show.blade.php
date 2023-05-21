@@ -1,42 +1,53 @@
-@extends('layouts.plantilla')
+@extends('principal')
 
 @section('title', 'Paciente ')
 
-@section('content')
+@section('menu')
 
-    <br>
+<link href="/resources/css/create.css" rel="stylesheet">
     <div>
         <nav>
-        <!--include('layouts.partials.headerPacienteShow')-->
+            @include('layouts.partials.headerAntecedentes')
         </nav>
     </div>
-
-    <!--a href="{route('antecedentes.edit', $paciente->id)}}">Editar antecedentes del paciente</a>-->
+    
     <br> 
     
-    <h1>Antecedentes patológicos</h1>
-        <p><strong>Aplica:</strong> {{$paciente->ante_patologicos()->first()->aplica}}</p>
-        <p><strong>Descripción:</strong> {{$paciente->ante_patologicos()->first()->descripcion}}</p>
-    
+    <h1>Antecedentes del Paciente</h1>
 
-    <h1>Antecedentes no patológicos</h1>
-        <p><strong>Vacunas:</strong> {{$paciente->ante_no_patologicos()->first()->vacunas}}</p>     
-        <p><strong>Alimentación:</strong> {{ $paciente->ante_no_patologicos()->first()->alimentacion }}</p>
-        <p><strong>Horas de sueño:</strong>{{$paciente->ante_no_patologicos()->first()->hrs_sueno }}</p>
+        <h2>Antecedentes Patológicos</h2>
+        @if($ante_patologicos)
+            <p>Descripción: {{$ante_patologicos->descripcion}}</p>
+        @else
+            <p>No se encontraron antecedentes patológicos.</p>
+        @endif
 
-    <h1>Antecedentes heredo familiares</h1>
-        <p><strong>Enfermedad:</strong> {{ $paciente->ante_familiares()->first()->enfermedad}}</p>
-        <p><strong>Familiar:</strong> {{ $paciente->ante_familiares()->first()->familiar}}</p>
-        
-    <h1>Antecedentes ginecológicos</h1>
-        <p><strong>Aplica:</strong> {{$paciente->ante_ginecologicos()->first()->aplica}}</p>    
-        <p><strong>Especificacion: </strong>{{$paciente->ante_ginecologicos()->first()->especificacion}}</p>    
-        
-    <!--form action="{route('pacientes.destroy', $paciente)}}" method="POST">
-        csrf
-        method('delete')
-        <button type="submit">Eliminar</button>
-    </form-->
+        <h2>Antecedentes No Patológicos</h2>
+        @if($ante_no_patologicos)
+            <p>Vacunas: {{$ante_no_patologicos->vacunas}}</p>
+            <p>Alimentación: {{$ante_no_patologicos->alimentacion}}</p>
+            <p>Horas de Sueño: {{$ante_no_patologicos->hrs_sueno}}</p>
+        @else
+            <p>No se encontraron antecedentes no patológicos.</p>
+        @endif
+
+        <h2>Antecedentes Familiares</h2>
+        @if($ante_familiares)
+            <p>Enfermedad: {{$ante_familiares->enfermedad}}</p>
+            <p>Familiar: {{$ante_familiares->familiar}}</p>
+        @else
+            <p>No se encontraron antecedentes familiares.</p>
+        @endif
+
+        <h2>Antecedentes Ginecológicos</h2>
+        @if($ante_ginecologicos)
+            <p>Aplica: {{$ante_ginecologicos->aplica}}</p>
+            <p>Especificación: {{$ante_ginecologicos->especificacion}}</p>
+        @else
+            <p>No se encontraron antecedentes ginecológicos.</p>
+        @endif
+
+<!--a href="{route('antecedentes.edit', $paciente->id)}}">Editar antecedentes del paciente</a>-->
     
     
 @endsection

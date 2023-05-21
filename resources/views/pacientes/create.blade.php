@@ -113,7 +113,7 @@
                             <label class="form-label">
                                 Semestre: 
                                 <select class="form-control" name="semestre" >
-                                    <option value=""  {{old('semestre')== '' ? 'selected' : ''}}>Seleccione</option>
+                                    <option value="0"  {{old('semestre')== '' ? 'selected' : ''}}>Seleccione</option>
                                     <option value="1" {{old('semestre')== '1' ? 'selected' : ''}}>1</option>
                                     <option value="2" {{old('semestre')== '2' ? 'selected' : ''}}>2</option>
                                     <option value="3" {{old('semestre')== '3' ? 'selected' : ''}}>3</option>
