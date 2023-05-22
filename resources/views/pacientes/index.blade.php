@@ -6,15 +6,18 @@
 @section('menu')
 <link href="/resources/css/index.css" rel="stylesheet">
 <div class="form-group">
-    <h2><br>Listado de pacientes</h2>
-        <form action="{{route('pacientes.buscarPorNoCuenta') }}" method="POST">
-            @csrf
-            <label class="form-label">Buscar Paciente</label>
-            <input type="text" name="nocuenta" placeholder="Numero de cuenta" id="busqueda">
+    <h1>Listado de pacientes</h1>
+    <br>
+        <div style="display:flex; justify-content:space-evenly; flex-direction:row-reverse;">
+            <a href="{{ url('/pacientes/create') }}" class="btn btn-primary">Registrar nuevo paciente</a>
+            <form action="{{route('pacientes.buscarPorNoCuenta') }}" method="POST">
+                @csrf
+                <label class="form-label">Buscar Paciente</label>
+                <input type="text" name="nocuenta" placeholder="Numero de cuenta" id="busqueda">
 
-            <button type="submit" class="btn btn-outline-info" id="btn-buscar">Buscar</button>
-        </form>
-        <a href="{{ url('/pacientes/create') }}" class="btn btn-primary">Registrar nuevo paciente</a>
+                <button type="submit" class="btn btn-outline-info" id="btn-buscar">Buscar</button>
+            </form>
+        </div>
         @if(session('error'))
         <div class="alert alert-danger">
             {{ session('error') }}
@@ -24,7 +27,7 @@
             // Esperar un tiempo determinado (en milisegundos) antes de ocultar el mensaje de error
             setTimeout(function() {
                 document.getElementById('mensaje-error').style.display = 'none';
-            }, 3000); // Aquí se establece un tiempo de 5000 milisegundos (5 segundos)
+            }, 3000); // Aquí se establece un tiempo de 3000 milisegundos (3 segundos)
         </script>
     @endif
 </div>

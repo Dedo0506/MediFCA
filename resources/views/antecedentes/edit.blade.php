@@ -1,8 +1,9 @@
-@extends('layouts.plantilla')
+@extends('principal')
 
 @section('title', 'Editar antecedentes')
 
-@section('content')
+@section('menu')
+<link href="/sources/css/app.css" rel="stylesheet">
 
     <div>
         <nav>

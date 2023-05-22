@@ -4,7 +4,7 @@
 
 @section('menu')
 
-<link href="/resources/css/create.css" rel="stylesheet">
+<link href="/sources/css/app.css" rel="stylesheet">
     <div>
         <nav>
             @include('layouts.partials.headerAntecedentes')
@@ -12,8 +12,6 @@
     </div>
     
     <br> 
-    
-    <h1>Antecedentes del Paciente</h1>
 
         <h2>Antecedentes Patológicos</h2>
         @if($ante_patologicos)

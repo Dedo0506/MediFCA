@@ -16,4 +16,10 @@ class Consulta extends Model
         'ambulancia',
     ];
     use HasFactory;
+
+    public function paciente()
+    {
+    return $this->belongsTo(Paciente::class, 'paciente_id', 'id');
+    }
 }
+

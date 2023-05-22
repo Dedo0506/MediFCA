@@ -2,6 +2,7 @@
 
 @section('menu')
 <link href="/sources/css/app.css" rel="stylesheet">
+
 @include('layouts.partials.headerConsulta') 
 
 <div class="container">

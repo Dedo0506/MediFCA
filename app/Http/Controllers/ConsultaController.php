@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Consulta;
+use App\Models\Paciente;
 use Illuminate\Http\Request;
 
 class ConsultaController extends Controller
 {
-    public function index($paciente_id)
+    public function index()
     {
-        $consultas = Consulta::latest()->take(2)->get();
+        $consultas = Consulta::all();
         return view('consulta.index', compact('consultas'));
     }
     
@@ -19,21 +20,28 @@ class ConsultaController extends Controller
     }
 
     public function store(Request $request)
-{
-    $datosConsulta = $request->except('_token');
+    {
+        $paciente_id = $request->input('paciente_id');
+        $paciente = Paciente::find($paciente_id);
+        $datosConsulta = $request->except('_token');
 
-    // Agregar la asignación de fecha y hora actual
-    $datosConsulta['fecha_hora'] = date('Y-m-d H:i:s');
-    
-    if ($request->hasFile('Foto')) {
-        $datosConsulta['Foto'] = $request->file('Foto')->store('uploads', 'public'); 
+        // Agregar la asignación de fecha y hora actual
+        $datosConsulta['fecha_hora'] = date('Y-m-d H:i:s');
+        
+        if ($request->hasFile('Foto')) {
+            $datosConsulta['Foto'] = $request->file('Foto')->store('uploads', 'public'); 
+        }
+
+        $consulta = Consulta::create($datosConsulta);
+        
+        return redirect('consulta'); 
     }
 
-    Consulta::create($datosConsulta);
-    
-    return redirect('consulta'); 
-}
-
+    public function show($id)
+    {
+        $consulta = Consulta::findOrFail($id);
+        return view('consulta.show', compact('consulta'));
+    }
 
     public function update(Request $request, $id)
     {
@@ -43,14 +51,16 @@ class ConsultaController extends Controller
             $datosConsulta['Foto'] = $request->file('Foto')->store('uploads', 'public'); 
         }
 
-        Consulta::where('id', $id)->update($datosConsulta);
+        $consulta = Consulta::findOrFail($id);
+        $consulta->update($datosConsulta);
 
         return redirect('consulta');
     }
 
     public function destroy($id)
     {
-        Consulta::destroy($id);
+        $consulta = Consulta::findOrFail($id);
+        $consulta->delete();
         return redirect('consulta');
     }
     

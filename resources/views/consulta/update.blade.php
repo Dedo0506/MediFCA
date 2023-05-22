@@ -1,6 +1,8 @@
 @extends('principal')
 
 @section('menu')
+<link href="/sources/css/app.css" rel="stylesheet">
+@include('layouts.partials.headerConsulta') 
     <div class="container w-25 border p-4">
         <form method="POST" action="{{ route('medicamentos.update', $medicamento->id) }}">
             @csrf

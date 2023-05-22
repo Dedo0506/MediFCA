@@ -69,5 +69,8 @@ class Paciente extends Model
         return$this->hasMany(ante_familiares::class, 'paciente_id','id');
     }
 
+    public function consultas(){
+        return$this->hasMany(Consulta::class, 'paciente_id','id');
+    }
     
 }

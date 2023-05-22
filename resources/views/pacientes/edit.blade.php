@@ -13,7 +13,7 @@
 <link href="/resources/css/create.css" rel="stylesheet">
     <div>
         <nav>
-            @include('layouts.partials.headerPacienteShow')
+            @include('layouts.partials.headerPacientes')
         </nav>
     </div>
 
@@ -149,7 +149,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit">Actualizar informacion</button>
+                        <button class="btn btn-primary" type="submit">Actualizar informacion</button>
                     </div>
                 </form>
             </div>
