@@ -32,13 +32,16 @@
 
 <div class="navbar-nav">
     <nav>
+        <?php
+        foreach ($consultas as $consulta) {
+          $paciente = $consulta->paciente;
+        }
+        ?>
         <ul>
-          @foreach ($consultas as $consulta)
-            <h1 style="color:beige; font-weight:700;">Paciente {{$consulta->paciente->nombre}} {{$consulta->paciente->appaterno}} {{$consulta->paciente->apmaterno}} </h1>
-            <li><a  href="{{route('pacientes.show', $consultas->paciente->id) }}" class="{{request()->routeIs('pacientes.*') ? 'active' : ''}}">Datos personales</a></li>
-            <li><a  href="{{route('antecedentes.show',$consultas->paciente->id)}} " class="{{request()->routeIs('antecedentes.*') ? 'active' : ''}}">Antecedentes</a></li>
-            <li><a href="{{route('consulta.show', $consultas->paciente->id)}} " class="{{request()->routeIs('consulta.*') ? 'active' : ''}}">Consultas</a></li>
-          @endforeach
+            <h1 style="color:beige; font-weight:700;">Paciente {{$paciente->nombre}} {{$paciente->appaterno}} {{$paciente->apmaterno}} </h1>
+            <li><a  href="{{route('pacientes.show', $paciente->id) }}" class="{{request()->routeIs('pacientes.*') ? 'active' : ''}}">Datos personales</a></li>
+            <li><a  href="{{route('antecedentes.show',$paciente->id)}} " class="{{request()->routeIs('antecedentes.*') ? 'active' : ''}}">Antecedentes</a></li>
+            <li><a href="{{route('consulta.show', $paciente->id)}} " class="{{request()->routeIs('consulta.*') ? 'active' : ''}}">Consultas</a></li>
         </ul>
     </nav>
 </div>

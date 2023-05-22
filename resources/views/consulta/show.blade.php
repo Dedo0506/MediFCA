@@ -2,9 +2,6 @@
 
 @section('menu')
 <link href="/sources/css/app.css" rel="stylesheet">
-
-@include('layouts.partials.headerConsulta') 
-
 <div class="container">
   <div class="card">
     <div class="card-header">

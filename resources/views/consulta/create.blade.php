@@ -11,7 +11,7 @@
         <div class="card-body">
           <div class="subsection-inline">
             <div class="subsection">{{ __('Nuevo registro') }}</div>
-            <form action="{{ url('consulta.create') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ url('consulta') }}" method="post" enctype="multipart/form-data">
               @csrf
               <input type="hidden" name="paciente_id" value="{{$paciente->id }}">
               <div class="form-group">

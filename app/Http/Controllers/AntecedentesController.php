@@ -7,6 +7,7 @@ use App\Models\ante_familiares;
 use App\Models\ante_ginecologicos;
 use App\Models\ante_no_patologicos;
 use App\Models\Paciente;
+use App\Models\Medicamento;
 use Illuminate\Http\Request;
 
 class AntecedentesController extends Controller
@@ -61,7 +62,8 @@ class AntecedentesController extends Controller
         $ante_ginecologicos->especificacion = $request->input('especificacion');
         $ante_ginecologicos->save();
 
-        return view('consulta.index', compact('paciente'));
+        $medicamentos = Medicamento::pluck('id','nombre');
+        return view('consulta.create', compact('paciente', 'medicamentos'));
     
     }
 

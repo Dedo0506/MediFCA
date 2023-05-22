@@ -19,7 +19,7 @@ class ConsultaController extends Controller
     public function create(Paciente $paciente)
     {
         $medicamentos = Medicamento::pluck('id', 'nombre');
-        return view('consulta.create',compact('paciente','medicamentos')); 
+        return view('consulta.index',compact('paciente','medicamentos')); 
     }
 
     public function store(Request $request)
@@ -42,8 +42,8 @@ class ConsultaController extends Controller
 
     public function show($id)
     {
-        $consulta = Consulta::findOrFail($id);
-        return view('consulta.show', compact('consulta'));
+        $consultas = Consulta::where('paciente_id', $id)->get();
+        return view('consulta.show', compact('consultas'));
     }
 
     public function update(Request $request, $id)
