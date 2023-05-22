@@ -33,7 +33,7 @@
               <td>{{ $medicamento->gramaje }}</td>
               <td>{{ $medicamento->fecha_caducidad }}</td>
               <td>{{ $medicamento->unidades }}</td>
-              <td>{{ $medicamento->fecha }}</td>
+              <td>{{ $medicamento->created_at }}</td>
               <td>
                 <a href="{{url('/medicamentos/'.$medicamento->id.'/edit')}}" class="btn btn-sm btn-warning">Editar</a>
                 <form action="{{ url('/medicamentos/'.$medicamento->id) }}" method="POST" style="display: inline-block;">

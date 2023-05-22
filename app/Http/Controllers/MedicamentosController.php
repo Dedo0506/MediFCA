@@ -28,11 +28,12 @@ class MedicamentosController extends Controller
     public function store(Request $request){
 
         $datosMedicamentos = request()->except('_token');
+
         if($request->hasFile('Foto')){
             $datosMedicamentos['Foto']=$request->file('Foto')->store('uploads', 'public'); 
         }
 
-        Medicamento::insert($datosMedicamentos);
+        Medicamento::create($datosMedicamentos);
         
         return redirect ('medicamentos/'); 
     }

@@ -35,10 +35,10 @@
               <label for="unidades">{{ __('Unidades') }}</label>
               <input type="number" class="form-control" id="unidades" name="unidades">
             </div>
-            <div class="form-group">
-              <label for="fecha">{{ __('Fecha de registro') }}</label>
+            <!--no es necesario ya que se obiene al hacer el registrodiv class="form-group">
+              <label for="fecha">{ __('Fecha de registro') }}</label>
               <input type="date" class="form-control" id="fecha" name="fecha">
-            </div>
+            </div--->
             <div class="form-group">
               <button type="submit" class="btn btn-primary">{{ __('Registrar') }}</button>
             </div>

@@ -7,10 +7,13 @@
                     <div class="col">
                         <label for="medicamento">{{ __('Seleccionar medicamento') }}</label>
                         <select class="form-control" id="medicamento" name="medicamento">
-                            @foreach($medicamentos as $medicamento)
-                                <option value="{{ $medicamento->id }}">{{ $medicamento->nombre }}</option>
+                            @foreach ($medicamentos as $medicamento)
+                                <option value="{{ $medicamento->id }}" {{ old('medicamento') == $medicamento->id ? 'selected' : '' }}>
+                                    {{ $medicamento->nombre }}
+                                </option>
                             @endforeach
                         </select>
+                        
                     </div>
                     <div class="col">
                         <label for="cantidad">{{ __('Cantidad suministrada') }}</label>

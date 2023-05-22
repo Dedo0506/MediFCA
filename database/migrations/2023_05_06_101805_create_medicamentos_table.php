@@ -16,8 +16,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('tipo');
             $table->string('presentacion');
-            $table->date('fecha');
-            $table->float('gramaje');
+            $table->string('gramaje');
             $table->date('fecha_caducidad');
             $table->integer('unidades');
             $table->timestamps();

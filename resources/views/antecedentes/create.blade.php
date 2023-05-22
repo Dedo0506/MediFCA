@@ -59,7 +59,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col">
-                                        <h4>Vacunas:</h4>
+                                        <label class="form-label">Vacunas:</label>
                                         <label class="form-label">Covid-19</label>
                                         <input type="checkbox" name="vacunas[]" value="Vacuna 1">
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Consulta;
 use App\Models\Paciente;
+use App\Models\Medicamento;
+use App\Models\SignosVitales;
 use Illuminate\Http\Request;
 
 class ConsultaController extends Controller
@@ -16,7 +18,8 @@ class ConsultaController extends Controller
     
     public function create()
     {
-        return view('consulta.create'); 
+        $medicamentos = Medicamento::pluck('nombre', 'id');
+        return view('consulta.create',compact('medicamentos')); 
     }
 
     public function store(Request $request)
