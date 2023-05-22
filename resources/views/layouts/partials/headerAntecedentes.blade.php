@@ -32,7 +32,7 @@
 <div class="navbar-nav">
     <nav>
         <ul>
-            <h1 style="color:beige; font-weight:700;">Paciente {{$ante_patologicos->paciente->nombre}} {{$ante_patologicos->paciente->appaterno}} {{$ante_patologicos->paciente->apmaterno}} </h1>
+            <h1 style="color:beige; font-weight:700;text-align:center;">Paciente {{$ante_patologicos->paciente->nombre}} {{$ante_patologicos->paciente->appaterno}} {{$ante_patologicos->paciente->apmaterno}} </h1>
             <li><a  href="{{route('pacientes.show', $ante_patologicos->paciente_id) }}" class="{{request()->routeIs('pacientes.*') ? 'active' : ''}}">Datos personales</a></li>
             <li><a  href="{{route('antecedentes.show', $ante_patologicos->paciente_id)}} " class="{{request()->routeIs('antecedentes.*') ? 'active' : ''}}">Antecedentes</a></li>
             <li><a href="{{route('consulta.show', $ante_patologicos->paciente_id)}} " class="{{request()->routeIs('consulta.*') ? 'active' : ''}}">Consultas</a></li>

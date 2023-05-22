@@ -33,7 +33,7 @@
 <div class="navbar-nav">
     <nav>
         <ul>
-            <h1 style="color:beige; font-weight:700;">Paciente {{$paciente->nombre}} {{$paciente->appaterno}} {{$paciente->apmaterno}} </h1>
+            <h1 style=" text-align:center; color:beige; font-weight:700;">Paciente {{$paciente->nombre}} {{$paciente->appaterno}} {{$paciente->apmaterno}} </h1>
             <li><a  href="{{route('pacientes.show', $paciente->id) }}" class="{{request()->routeIs('pacientes.*') ? 'active' : ''}}">Datos personales</a></li>
             <li><a  href="{{route('antecedentes.show',$paciente->id)}} " class="{{request()->routeIs('antecedentes.*') ? 'active' : ''}}">Antecedentes</a></li>
             <li><a href="{{route('consulta.show', $paciente->id)}} " class="{{request()->routeIs('consulta.*') ? 'active' : ''}}">Consultas</a></li>

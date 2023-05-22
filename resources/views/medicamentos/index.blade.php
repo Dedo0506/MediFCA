@@ -5,7 +5,9 @@
 
 <div class="container">
   <div class="card">
-    <div class="card-header">{{ __('Lista de medicamentos') }}</div>
+    <div class="card-header" style="display:flex; justify-content:space-between;">{{ __('Lista de medicamentos') }}
+      <a href="{{ route('medicamentos.create') }}" class="btn btn-primary" onclick="return confirm('¿Quieres registrar un medicamento?')">Registrar Medicamento</a>
+    </div>
     <div class="card-body">
       <table class="table table-hover">
         <thead>
