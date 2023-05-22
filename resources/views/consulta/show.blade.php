@@ -2,12 +2,16 @@
 
 @section('menu')
 <link href="/sources/css/app.css" rel="stylesheet">
+
+@include('layouts.partials.headerConsulta')
+
+
 <div class="container">
   <div class="card">
     <div class="card-header">
       <div class="d-flex justify-content-between align-items-center">
         <span>{{ __('Lista de consultas') }}</span>
-        <a href="{{ url('/consulta/create') }}" class="btn btn-primary" onclick="return confirm('¿Quieres crear una nueva consulta?')">Nueva Consulta</a>
+        <a href="{{route('consulta.create',['paciente' => $consultas[0]->paciente]) }}" class="btn btn-primary" onclick="return confirm('¿Quieres crear una nueva consulta?')">Nueva Consulta</a>
       </div>
     </div>
     <div class="card-body">
@@ -22,7 +26,7 @@
               <th>Exploracion Fisica</th>
               <th>Diagnostico</th>
               <th>Ambulancia</th>
-              <th>Accion</th>
+              <!--th>Accion</th-->
             </tr>
           </thead>
           <tbody>
@@ -34,9 +38,9 @@
                 <td>{{ $consulta->exploracion_fisica }}</td>
                 <td>{{ $consulta->diagnostico }}</td>
                 <td>{{ $consulta->ambulancia }}</td>
-                <td>
-                  <a href="{{ url('/consulta/'.$consulta->id.'/edit') }}" class="btn btn-sm btn-warning">Editar</a>
-                </td>
+                <!--td>
+                  <a href="{ url('/consulta/'.$consulta->id.'/edit') }}" class="btn btn-sm btn-warning">Editar</a>
+                </td-->
               </tr>
             @endforeach
           </tbody>

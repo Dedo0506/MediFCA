@@ -13,13 +13,13 @@ class ConsultaController extends Controller
     public function index()
     {
         $consultas = Consulta::all();
-        return view('consulta.index', compact('consultas'));
+        return view('consulta.show', compact('consultas'));
     }
     
     public function create(Paciente $paciente)
     {
         $medicamentos = Medicamento::pluck('id', 'nombre');
-        return view('consulta.index',compact('paciente','medicamentos')); 
+        return view('consulta.create',compact('paciente','medicamentos')); 
     }
 
     public function store(Request $request)
@@ -36,6 +36,7 @@ class ConsultaController extends Controller
         }
 
         $consulta = Consulta::create($datosConsulta);
+        $consulta->paciente_id =$paciente_id;
         
         return redirect('consulta'); 
     }
