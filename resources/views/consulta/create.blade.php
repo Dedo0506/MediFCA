@@ -13,7 +13,7 @@
             <div class="subsection">{{ __('Nuevo registro') }}</div>
             <form action="{{ url('consulta.create') }}" method="post" enctype="multipart/form-data">
               @csrf
-              <!--input type="hidden" name="paciente_id" value="{ $consulta->paciente->id }}"-->
+              <input type="hidden" name="paciente_id" value="{{$paciente->id }}">
               <div class="form-group">
                 <label for="fecha_hora">{{ __('Fecha y Hora') }}</label>
                 <input type="datetime-local" class="form-control" id="fecha_hora" name="fecha_hora">

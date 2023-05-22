@@ -16,10 +16,10 @@ class ConsultaController extends Controller
         return view('consulta.index', compact('consultas'));
     }
     
-    public function create()
+    public function create(Paciente $paciente)
     {
-        $medicamentos = Medicamento::pluck('nombre', 'id');
-        return view('consulta.create',compact('medicamentos')); 
+        $medicamentos = Medicamento::pluck('id', 'nombre');
+        return view('consulta.create',compact('paciente','medicamentos')); 
     }
 
     public function store(Request $request)

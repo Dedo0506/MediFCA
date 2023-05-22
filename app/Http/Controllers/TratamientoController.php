@@ -16,7 +16,7 @@ class TratamientoController extends Controller
 
     public function create()
     {
-        $medicamentos = Medicamento::pluck('nombre', 'id');
+        $medicamentos = Medicamento::pluck('id','nombre');
         return view('tratamientos.create', compact('medicamentos'));
     }
 

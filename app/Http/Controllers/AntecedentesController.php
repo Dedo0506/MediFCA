@@ -61,7 +61,7 @@ class AntecedentesController extends Controller
         $ante_ginecologicos->especificacion = $request->input('especificacion');
         $ante_ginecologicos->save();
 
-        return view('consulta.create', compact('paciente'));
+        return view('consulta.index', compact('paciente'));
     
     }
 
