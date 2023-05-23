@@ -38,7 +38,7 @@ class ConsultaController extends Controller
         $consulta = Consulta::create($datosConsulta);
         $consulta->paciente_id =$paciente_id;
         
-        return redirect('consulta'); 
+        return redirect('consulta.show',compact('consultas')); 
     }
 
     public function show($id)
