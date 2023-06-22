@@ -18,8 +18,9 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
+    <img src="/img/fca.png" style="width: 70px; height: 70px; ">
     <a class="navbar-brand" href="/" style="color:blue;">MediFCA 
-    <img src="img/fca.png">
+    
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

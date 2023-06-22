@@ -28,7 +28,7 @@ class StorePaciente extends FormRequest
             'nocuenta'=> 'required|digits:9', //se pueden agregar mas reglas de validacion
             'carrera'=>'required|not_in:...',
             'sexo'=> 'required',
-            'fecNac'=> 'required',
+            'fecNac'=> 'required|date|before:tomorrow|after:31 December 1899|date_format:Y-m-d',
             'semestre'=>'required|not_in:0',
             'grupo'=>'required|digits:4',
 
@@ -41,12 +41,16 @@ class StorePaciente extends FormRequest
         return[
             'appaterno'=>'apellido paterno',
             'nocuenta'=>'numero de cuenta',
-            'fecNac'=>'fecha de nacimiento'
+            'fecNac'=>'fecha de nacimiento',
         ];
     }
 
-    /*metodo para personalizar los mensajes de las validaciones 
+    //metodo para personalizar los mensajes de las validaciones 
     public function messages()
     {
-    }*/
+        return[
+            
+        ];
+        
+    }
 }
